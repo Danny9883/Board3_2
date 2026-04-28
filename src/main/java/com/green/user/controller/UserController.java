@@ -33,7 +33,7 @@ public class UserController {
     // /Users/Write
     @RequestMapping("/Write")
     public  ModelAndView  write( UserDto userDto ) {
-    	System.out.println( "UserConntroller write() -> userDto : " + userDto );
+    	System.out.println( "UserConntroller write() ->  " + userDto );
     	
     	// 넘어온 data 로 DB 에 저장
     	userMapper.insertUser( userDto );
@@ -61,17 +61,31 @@ public class UserController {
 	
 	
 	
+	// /Users/Delete?userid=SKY
+	@RequestMapping("/Delete")
+	public  ModelAndView  delete( UserDto userDto ) {
+		
+		// 넘겨받은 자료를 출력
+		System.out.println( "UserCont delete() -> " + userDto );
+		
+		// DB 의 자료를 삭제
+		userMapper.deleteUser( userDto );
+		
+		// 목록으로 이동
+		ModelAndView  mv  = new ModelAndView();
+		mv.setViewName("redirect:/Users/List");
+		return  mv;
+	}
+	
+	
+	
+	
+	
+	
 	//--------------------------- 
 /*
 	
-	// /Users/Delete?user_id=${ user.userid }
-	@RequestMapping("/Delete")
-	public  String  delete( UserDto userDto ) {
-		System.out.println("삭제할 아이디 : " + userDto);
-		userMapper.deleteUser(userDto);
-		
-		return "redirect:/Users/List";
-	}
+
 	
 	
 	// /Users/UpdateForm?userid=${ user.userid }

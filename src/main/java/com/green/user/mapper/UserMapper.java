@@ -13,6 +13,8 @@ public interface UserMapper {
 
 	List<UserDto> getUserList();
 
+	void deleteUser(UserDto userDto);
+
 
 
 }

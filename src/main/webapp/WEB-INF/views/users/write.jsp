@@ -44,7 +44,7 @@
 			<table>
 				<tr>
 					<td><span class="red">*</span> 사용자 아이디</td>
-					<td><input type="text"  name="userid"  /></td>
+					<td><input type="text"  name="userid" /></td>
 				</tr>
 				<tr>
 					<td><span class="red">*</span> 비밀번호</td>
@@ -105,7 +105,7 @@
 			//  비밀번호확인 체크
 			if ( passwd2El.value.trim() == '' ) {
 				alert('비밀번호 확인을 입력하세요.');
-				userwd2El.focus();				
+				passwd2El.focus();				
 				e.preventDefault();   // 이벤트 취소
 				e.stopPropagation();  // 이벤트 버블링 방지
 				return;
@@ -114,7 +114,7 @@
 			//  비밀번호 == 비밀번호확인
 			if ( passwdEl.value != passwd2El.value ) {
 				alert('비밀번호가 일치하지 않습니다.');
-				userid2El.focus();				
+				passwd2El.focus();				
 				e.preventDefault();   // 이벤트 취소
 				e.stopPropagation();  // 이벤트 버블링 방지
 				return;

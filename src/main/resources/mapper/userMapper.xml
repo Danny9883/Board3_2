@@ -37,6 +37,14 @@
 	ORDER BY USERID ASC
 	
 	</select>
+	
+	<!-- 사용자 삭제 -->
+	<delete id="deleteUser">
+	
+	DELETE  FROM  TUSER
+	 WHERE  USERID = #{ userid }
+	
+	</delete>
 
 	
 
