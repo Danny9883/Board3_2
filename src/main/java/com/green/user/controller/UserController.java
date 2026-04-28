@@ -78,33 +78,38 @@ public class UserController {
 	}
 	
 	
-	
-	
-	
-	
-	//--------------------------- 
-/*
-	
-
-	
-	
-	// /Users/UpdateForm?userid=${ user.userid }
+	// /Users/UpdateForm?userid=SKY
 	@RequestMapping("/UpdateForm")
-	public  String  updateForm(UserDto userDto, Model model) {
-		System.out.println("넘어온 대상 : " + userDto);
-		UserDto user = userMapper.getUser(userDto);
-		System.out.println("바꿀 대상의 정보 : " + user);
-		model.addAttribute("user", user);
-		return "users/update";
+	public  ModelAndView  updateForm( UserDto userDto ) {
+		// 넘어온 userDto 정보
+		System.out.println("넘어온 정보 -> " + userDto);
+		
+		// 수정을 위해 DB 에서 조회한 정보
+		UserDto  user = userMapper.getUser( userDto ); 
+		System.out.println("조회된 정보 -> " + user);
+		
+		ModelAndView  mv  = new ModelAndView();
+		mv.setViewName("users/update");
+		mv.addObject("user", user);
+		
+		return  mv;
 	}
 	
 	// /Users/Update
+	// userid=SEA&passwd=12345&username=%EB%B0%94%EB%8B%A4&email=sea%40green.com
 	@RequestMapping("/Update")
-	public  String  update(UserDto userDto) {
+	public  ModelAndView  update( UserDto userDto ) {
+		
 		userMapper.updateUser(userDto);
 		
-		return "redirect:/Users/List";
+		ModelAndView  mv  = new ModelAndView();
+		mv.setViewName("redirect:/Users/List");
+		return  mv;
 	}
-	*/
+	
+	
+	
+	
+
 	
 }
