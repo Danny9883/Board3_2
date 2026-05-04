@@ -4,11 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.green.menus.controller.MenuController;
 import com.green.user.dto.UserDto;
 import com.green.user.mapper.UserMapper;
 
@@ -105,6 +105,22 @@ public class UserController {
 		ModelAndView  mv  = new ModelAndView();
 		mv.setViewName("redirect:/Users/List");
 		return  mv;
+	}
+	
+	
+	// 아이디 중복 확인 - 결과문자열을 리턴 : 
+	// <b class="green">사용가능한 아이디 입니다</b>
+	// <b class="red">사용할 수 없는 아이디입니다</b>
+	// /Users/IdDupCheck2?userid=sky
+	@GetMapping("/IdDupCheck2")
+	@ResponseBody     // return 되는 글자는 jsp 가 아니다
+	public  UserDto  idDupCheck2( UserDto userDto ) {
+		
+		UserDto  user    = userMapper.getIdDupCheck(userDto); //  조회한 userid
+		if(user == null)
+			user = new UserDto();
+		return   user;
+		
 	}
 	
 	

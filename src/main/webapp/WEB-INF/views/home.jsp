@@ -20,6 +20,8 @@
 		<div>&nbsp;</div>    
     <div><a href="/Users/List">사용자 목록</a></div>  
     <div><a href="/Users/WriteForm">사용자 추가</a></div>  
+		<div>&nbsp;</div>    
+    <div><a href="/Users/IdDupCheck2?userid=aaa">아이디 중복 테스트</a></div>  
   </main>
   
 </body>
