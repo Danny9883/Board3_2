@@ -162,7 +162,14 @@
 		// 아이디 중복 확인1(새 창 열기)
 		const  btnDup1El  = document.querySelector('#dupCheck1')
 		btnDup1El.addEventListener('click', function() {
-			alert('Ok1')
+			// alert('Ok1')
+			// 새 창(새 브라우저)을 띄운다
+			let  uid       = useridEl.value
+			let  url       = '/Users/DupCheckWindow?userid='+uid
+			let  target    = 'dupcheck';  // 새 창 이름이 있으면 한개만 열린다
+			let  feauture  = 'left=800, top=200, width=400, height=300'
+			window.open(url, target, feauture )
+			
 		}) // btnDup1El click END
 	
 				
